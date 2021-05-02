@@ -51,7 +51,16 @@ https://templatemo.com/tm-518-sentra
                         <li><a href="#video">Presentation</a></li>
                         <li><a href="#blog">Blog Entries</a></li>
                         <li><a href="#contact">Contact Us</a></li>
+
+                        {% if user.is_authenticated %}
+                        <li>Hello, {{user.first_name}}</li>
+                        <li><a href="accounts/logout">Logout</a></li>
+
+                        {% else %}
                         <li><a href="accounts/register">Register</a></li>
+                        <li><a href="accounts/login">Login</a></li>
+
+                        {% endif %}
                     </ul>
                 </nav>
             </div>
@@ -105,6 +114,24 @@ https://templatemo.com/tm-518-sentra
                             Contact Us
                         </a>
                     </li>
+
+                    {% if user.is_authenticated %}
+                    <li>
+                        <a href="">
+                            <span class="rect"></span>
+                            <span class="circle"></span>
+                            Hello, {{user.first_name}}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="accounts/logout">
+                            <span class="rect"></span>
+                            <span class="circle"></span>
+                            Logout
+                        </a>
+                    </li>
+
+                    {% else %}
                     <li>
                         <a href="accounts/register">
                             <span class="rect"></span>
@@ -112,6 +139,15 @@ https://templatemo.com/tm-518-sentra
                             Register
                         </a>
                     </li>
+                    <li>
+                        <a href="accounts/login">
+                            <span class="rect"></span>
+                            <span class="circle"></span>
+                            Login
+                        </a>
+                    </li>
+
+                    {% endif %}
                 </ul>
             </nav>
             <ul class="social-icons">
